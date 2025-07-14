@@ -41,11 +41,11 @@
 (defcustom gt-buffer-render-follow-p nil
   "Pop to the result buffer instead of just displaying."
   :type 'boolean
-  :group 'go-translate)
+  :group 'gt)
 
 (defcustom gt-buffer-render-split-width-threshold 80
   "Threshold width of window horizontal split for Buffer-Render."
-  :group 'go-translate
+  :group 'gt
   :type '(choice
           (const :tag "Disable" nil)
           (integer :tag "Threshold")))
@@ -57,17 +57,17 @@
 
 Notice, this can be overrided by `window-config' slot of render instance."
   :type 'sexp
-  :group 'go-translate)
+  :group 'gt)
 
 (defcustom gt-buffer-render-init-hook nil
   "Hook run after buffer initialization in Buffer-Render."
   :type 'hook
-  :group 'go-translate)
+  :group 'gt)
 
 (defcustom gt-buffer-render-output-hook nil
   "Hook run after output finished in Buffer-Render."
   :type 'hook
-  :group 'go-translate)
+  :group 'gt)
 
 (defvar gt-buffer-render-buffer-name "*gt-result*")
 

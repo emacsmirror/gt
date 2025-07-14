@@ -1,7 +1,8 @@
-[[https://melpa.org/#/go-translate][file:https://melpa.org/packages/go-translate-badge.svg]] [[https://stable.melpa.org/#/go-translate][file:https://stable.melpa.org/packages/go-translate-badge.svg]]
+# [[https://melpa.org/#/gt][file:https://melpa.org/packages/gt-badge.svg]] [[https://stable.melpa.org/#/gt][file:https://stable.melpa.org/packages/gt-badge.svg]]
 
+I have renamed this package from =go-translate= to =gt=. You should change the config to fit it.
 
-* Go Translate
+* gt.el
 
 This is a translation framework on Emacs, with high configurability and extensibility.
 
@@ -36,7 +37,7 @@ It's more than just a translation framework.It's flexible, and can easily be ext
 Download and load this package via MELPA or other ways.
 
 #+begin_src emacs-lisp
-  (use-package pdd :ensure t)
+  (use-package gt :ensure t)
 #+end_src
 
 ** Basic Usage (as a Translator)
@@ -92,7 +93,7 @@ This configuration presets three translators:
 The first translator in =gt-preset-translators= will act as the default translator if =gt-default-translator= is nil.
 So, translate with command =gt-translate= and switch between preset translators with command =gt-setup=.
 
-See more configuration options via =M-x customize-group go-translate=, and read the following chapters for more configuration details.
+See more configuration options via =M-x customize-group gt=, and read the following chapters for more configuration details.
 
 ** Deep into Core Components
 
@@ -508,7 +509,7 @@ The following is a more general and practical command that performs a certain ta
   (defun my-ai-oneshot ()
     "Use C-. C-, to switch model."
     (interactive)
-    (require 'go-translate)
+    (require 'gt)
     (let ((prompt nil)
           (model (or my-ai-oneshot-last-model
                      (setq my-ai-oneshot-last-model (or (car my-ai-oneshot-models) gt-chatgpt-model)))))

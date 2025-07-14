@@ -1,4 +1,4 @@
-* Go Translate
+* gt.el
 
 这是一个翻译框架，其主要特点是高度可配置性和高度可扩展性。
 
@@ -88,7 +88,7 @@
 如果 =gt-default-translator= 为 nil，那么 =gt-preset-translators= 中的第一个将会被作为默认翻译器。
 因此就可以通过命令 =gt-translate= 进行翻译，并可通过 =gt-setup= 在不同翻译器间进行切换。
 
-请通过 =M-x customize-group go-translate= 查看更多配置选项，通过阅读之后的章节了解更多配置细节。
+请通过 =M-x customize-group gt= 查看更多配置选项，通过阅读之后的章节了解更多配置细节。
 
 ** 更多配置
 
@@ -529,7 +529,7 @@ DeepL 需要 auth-key 才能正常使用，首先需要通过官网进行获取�
   (defun my-ai-oneshot ()
     "Use C-. C-, to switch model."
     (interactive)
-    (require 'go-translate)
+    (require 'gt)
     (let ((prompt nil)
           (model (or my-ai-oneshot-last-model
                      (setq my-ai-oneshot-last-model (or (car my-ai-oneshot-models) gt-chatgpt-model)))))

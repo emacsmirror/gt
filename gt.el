@@ -1,12 +1,12 @@
-;;; go-translate.el --- Translation framework, configurable and scalable -*- lexical-binding: t -*-
+;;; gt.el --- Translation framework, configurable and scalable -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2024 lorniu <lorniu@gmail.com>
 
 ;; Author: lorniu <lorniu@gmail.com>
-;; URL: https://github.com/lorniu/go-translate
+;; URL: https://github.com/lorniu/gt.el
 ;; Package-Requires: ((emacs "28.1") (pdd "0.21"))
 ;; Keywords: convenience
-;; Version: 3.1.0
+;; Version: 3.2.0
 
 ;; SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -46,7 +46,7 @@
 ;;
 ;; For the most basic use, add the following configuration:
 ;;
-;;   (require 'go-translate)
+;;   (require 'gt)
 ;;
 ;;   (setq gt-default-translator
 ;;        (gt-translator
@@ -319,17 +319,6 @@ If ARG is not nil, translate with translator select by `gt-preset-translators'."
     (gt-ensure-default-translator)
     (gt-start gt-default-translator)))
 
-;;; for compact
+(provide 'gt)
 
-;;;###autoload
-(defalias 'gt-do-setup 'gt-setup)
-
-;;;###autoload
-(defalias 'gt-do-speak 'gt-speak)
-
-;;;###autoload
-(defalias 'gt-do-translate 'gt-translate)
-
-(provide 'go-translate)
-
-;;; go-translate.el ends here
+;;; gt.el ends here

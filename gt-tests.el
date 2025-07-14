@@ -27,7 +27,7 @@
 ;;; Code:
 
 (require 'ert)
-(require 'go-translate)
+(require 'gt)
 
 ;;; Tests
 

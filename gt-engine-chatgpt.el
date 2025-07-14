@@ -28,9 +28,9 @@
 
 (require 'gt-core)
 
-(defgroup go-translate-chatgpt nil
+(defgroup gt-chatgpt nil
   "Configs for ChatGPT engine."
-  :group 'go-translate)
+  :group 'gt)
 
 
 ;;; Components
@@ -58,46 +58,46 @@
 (defcustom gt-chatgpt-host "https://api.openai.com"
   "API host of ChatGPT."
   :type 'string
-  :group 'go-translate-chatgpt)
+  :group 'gt-chatgpt)
 
 (defcustom gt-chatgpt-path "/v1/chat/completions"
   "API endpoint of ChatGPT."
   :type 'string
-  :group 'go-translate-chatgpt)
+  :group 'gt-chatgpt)
 
 (defcustom gt-chatgpt-key nil
   "Auth Key of ChatGPT. Recommend to save in .authinfo file instead."
   :type 'string
-  :group 'go-translate-chatgpt)
+  :group 'gt-chatgpt)
 
 (defcustom gt-chatgpt-model "gpt-4o-mini"
   "Model to be used in chat."
   :type 'string
-  :group 'go-translate-chatgpt)
+  :group 'gt-chatgpt)
 
 (defcustom gt-chatgpt-temperature 1
   "Temperature of ChatGPT."
   :type 'natnum
-  :group 'go-translate-chatgpt)
+  :group 'gt-chatgpt)
 
 (defcustom gt-chatgpt-extra-options nil
   "Extra options send with completion API.
 
 Example: \\='((n . 1) (max_completion_tokens . 10))"
   :type 'alist
-  :group 'go-translate-chatgpt)
+  :group 'gt-chatgpt)
 
 (defcustom gt-chatgpt-system-prompt "You are a translation assistant"
   "System prompt send to server when translation."
   :type 'string
-  :group 'go-translate-chatgpt)
+  :group 'gt-chatgpt)
 
 (defcustom gt-chatgpt-user-prompt-template "Translate the text to {{lang}}, and only return the translate result without any markers. The text is: \n{{text}}"
   "Template for user prompt when translation.
 When it is string, {{lang}} and {{text}} is placeholders of lang and text.
 When it is function, arguments passed to it should be text and lang."
   :type '(choice string function)
-  :group 'go-translate-chatgpt)
+  :group 'gt-chatgpt)
 
 (declare-function pulse-momentary-highlight-region "pulse")
 
@@ -223,17 +223,17 @@ With two arguments BEG and END, which are the marker bounds of the result.")
   "Which voice to use by ChatGPT Speech.
 alloy, echo, fable, onyx, nova, or shimmer."
   :type 'string
-  :group 'go-translate-chatgpt)
+  :group 'gt-chatgpt)
 
 (defcustom gt-chatgpt-tts-speed 1.0
   "Speech speed of return audio from ChatGPT."
   :type 'number
-  :group 'go-translate-chatgpt)
+  :group 'gt-chatgpt)
 
 (defcustom gt-chatgpt-tts-extra-options nil
   "Extra options provided to tts engine."
   :type 'alist
-  :group 'go-translate-chatgpt)
+  :group 'gt-chatgpt)
 
 (cl-defmethod gt-speech ((engine gt-chatgpt-engine) text _lang &optional play-fn)
   (with-slots (host tts-host tts-path tts-model) engine
