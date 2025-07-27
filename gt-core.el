@@ -2,7 +2,6 @@
 
 ;; Copyright (C) 2024 lorniu <lorniu@gmail.com>
 ;; Author: lorniu <lorniu@gmail.com>
-;; Package-Requires: ((emacs "28.1") (pdd "0.21"))
 
 ;; SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -42,6 +41,8 @@
   "Whether enable the debug message."
   :type 'boolean
   :group 'gt)
+
+(declare-function dom-by-tag "dom")
 
 
 ;;; Variables and Components
@@ -657,7 +658,7 @@ When `space' in DISPLAY, prepend a space to the STR."
 (defun gt-lookup-password (&rest params)
   "Query password stored in '.authinfo'.
 PARAMS contains search keys like :user, :host same as `auth-source-search'."
-  (when-let* ((secret (plist-get (car (apply 'auth-source-search params)) :secret)))
+  (when-let* ((secret (plist-get (car (apply #'auth-source-search params)) :secret)))
     (if (functionp secret)
         (funcall secret)
       secret)))
@@ -1580,7 +1581,7 @@ When output a task, hint that this is for a stream request.")
       (progn (cl-call-next-method render translator)
              (gt-update translator))
     (error (gt-log 'render (format "%s initialize failed, abort" (gt-str render)))
-           (user-error (format "[output init error] %s" err)))))
+           (user-error "[output init error] %s" err))))
 
 (cl-defmethod gt-output :around ((render gt-render) (translator gt-translator))
   (with-slots (state) translator
