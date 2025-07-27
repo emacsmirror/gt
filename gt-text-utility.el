@@ -69,7 +69,7 @@
     (unless tgts (user-error "No targets found"))
     (cons nil (cl-delete-duplicates tgts))))
 
-(cl-defmethod gt-start ((_ gt-text-utility-engine) task)
+(cl-defmethod gt-execute ((_ gt-text-utility-engine) task)
   "Translate and render the TASK directly, skip parse and other steps."
   (with-slots (text tgt res translator) task
     (setf res (mapcar (lambda (c) (gt-text-util tgt (encode-coding-string c 'utf-8))) text))
