@@ -852,6 +852,10 @@ One simple config example:
 
 ** Integrate TTS to Emacs
 
+#+begin_quote
+NOTICE: mpv player ([[https://mpv.io]]) should be installed and configured before use TTS.
+#+end_quote
+
 Some engines implement TTS (Text to Speech) functionality via the =gt-speech= method. It's easy to use:
 #+begin_src emacs-lisp
   (gt-speech (gt-bing-engine) "hello" 'en)

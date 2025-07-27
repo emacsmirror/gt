@@ -878,6 +878,10 @@ DeepL 需要 auth-key 才能正常使用，首先需要通过官网进行获取�
 
 ** 为 Emacs 集成 TTS 功能
 
+#+begin_quote
+注意: 使用语音播放功能之前，需要安装并配置 MPV 播放器 ([[https://mpv.io]])。
+#+end_quote
+
 有些引擎通过 =gt-speech= 方法实现了 TTS (Text to Speech) 功能。使用起来很简单:
 #+begin_src emacs-lisp
   (gt-speech (gt-bing-engine) "hello" 'en)

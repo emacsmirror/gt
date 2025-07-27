@@ -1733,7 +1733,7 @@ The value should not contain any space in the command path."
 (defun gt-play-audio (data)
   "Play audio DATA and return a promise that resolves when finished."
   (unless (and gt-tts-speaker (executable-find (car (split-string gt-tts-speaker))))
-    (user-error "Speaker '%s' not found. Please install it or configure `gt-tts-speaker'" gt-tts-speaker))
+    (user-error "Speaker not found (%s).\n\nPlease install `mpv' or configure `gt-tts-speaker' to specify the player" gt-tts-speaker))
   (pdd-then (cond ((bufferp data)
                    (with-current-buffer data (buffer-string)))
                   ((and (stringp data) (string-prefix-p "http" data))
